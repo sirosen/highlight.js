@@ -18,12 +18,18 @@ export default function(hljs) {
     begin: /\?.*\?/
   };
 
+  const rhsOperators = {
+    className: 'operator',
+    begin: /[|,-]/
+  };
+
   const ruleBodyMode = {
     begin: /=/,
     end: /[.;]/,
     contains: [
       commentMode,
       specialSequenceMode,
+      rhsOperators,
       {
         // terminals
         className: 'string',
